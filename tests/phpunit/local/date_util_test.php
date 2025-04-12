@@ -6,6 +6,8 @@
 
 namespace tool_mulib\phpunit\local;
 
+use tool_mulib\local\date_util;
+
 /**
  * Date helper tests.
  *
@@ -16,7 +18,7 @@ namespace tool_mulib\phpunit\local;
  * @author      Petr Skoda
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @coversDefaultClass \tool_mulib\local\date_util
+ * @covers \tool_mulib\local\date_util
  */
 final class date_util_test extends \advanced_testcase {
     protected function setUp(): void {
@@ -24,39 +26,47 @@ final class date_util_test extends \advanced_testcase {
         $this->resetAfterTest();
     }
 
-    /**
-     * @covers ::format_event_date
-     */
-    public function test_date_util(): void {
-        $result = \tool_mulib\local\date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-15T15:00:00'));
+    public function test_timestamp_forever(): void {
+        $this->assertSame('9999999999', (string)date_util::TIMESTAMP_FOREVER);
+        $this->assertSame(9999999999, date_util::TIMESTAMP_FOREVER);
+    }
+
+    public function test_format_event_date(): void {
+        $result = date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-15T15:00:00'));
         $this->assertSame('15 August 2022&nbsp;&nbsp;&nbsp;11:00 AM&ndash;3:00 PM', $result);
 
-        $result = \tool_mulib\local\date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-16T15:00:00'));
+        $result = date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-16T15:00:00'));
         $this->assertSame('15 August 2022&nbsp;&nbsp;&nbsp;11:00 AM&ndash;3:00 PM<sup> (+1 day)</sup>', $result);
 
-        $result = \tool_mulib\local\date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-17T15:00:00'));
+        $result = date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-17T15:00:00'));
         $this->assertSame('15 August 2022&nbsp;&nbsp;&nbsp;11:00 AM&ndash;3:00 PM<sup> (+2 days)</sup>', $result);
 
-        $result = \tool_mulib\local\date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-20T15:00:00'));
+        $result = date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-20T15:00:00'));
         $this->assertSame('15 August 2022&nbsp;&nbsp;&nbsp;11:00 AM&ndash;3:00 PM<sup> (+5 days)</sup>', $result);
 
-        $result = \tool_mulib\local\date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-14T15:00:00'));
+        $result = date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-14T15:00:00'));
         $this->assertSame('15 August 2022&nbsp;&nbsp;&nbsp;11:00 AM', $result);
 
-        $result = \tool_mulib\local\date_util::format_event_date(strtotime('2022-08-15T11:00:00'), 0);
+        $result = date_util::format_event_date(strtotime('2022-08-15T11:00:00'), 0);
         $this->assertSame('15 August 2022&nbsp;&nbsp;&nbsp;11:00 AM', $result);
 
-        $result = \tool_mulib\local\date_util::format_event_date(strtotime('2022-08-15T11:00:00'), null);
+        $result = date_util::format_event_date(strtotime('2022-08-15T11:00:00'), null);
         $this->assertSame('15 August 2022&nbsp;&nbsp;&nbsp;11:00 AM', $result);
 
-        $result = \tool_mulib\local\date_util::format_event_date(0, strtotime('2022-08-15T15:00:00'));
+        $result = date_util::format_event_date(strtotime('2022-08-15T11:00:00'), date_util::TIMESTAMP_FOREVER);
+        $this->assertSame('15 August 2022&nbsp;&nbsp;&nbsp;11:00 AM', $result);
+
+        $result = date_util::format_event_date(date_util::TIMESTAMP_FOREVER, null);
+        $this->assertSame('21 November 2286&nbsp;&nbsp;&nbsp;1:46 AM', $result);
+
+        $result = date_util::format_event_date(0, strtotime('2022-08-15T15:00:00'));
         $this->assertSame('', $result);
 
-        $result = \tool_mulib\local\date_util::format_event_date(null, strtotime('2022-08-15T15:00:00'));
+        $result = date_util::format_event_date(null, strtotime('2022-08-15T15:00:00'));
         $this->assertSame('', $result);
 
         // Plan text decoding.
-        $result = \tool_mulib\local\date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-16T15:00:00'));
+        $result = date_util::format_event_date(strtotime('2022-08-15T11:00:00'), strtotime('2022-08-16T15:00:00'));
         $result = strip_tags($result);
         $result = \core_text::entities_to_utf8($result);
         $this->assertSame('15 August 2022   11:00 AM–3:00 PM (+1 day)', $result);

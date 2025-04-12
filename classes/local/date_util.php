@@ -14,6 +14,9 @@ namespace tool_mulib\local;
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class date_util {
+    /** @var int Unix timestamp indicating forever value */
+    public const TIMESTAMP_FOREVER = 9999999999;
+
     /**
      * Formats two dates of event on one short line.
      *
@@ -31,7 +34,7 @@ class date_util {
         $formattedline .= '&nbsp;&nbsp;&nbsp;';
         $formattedline .= userdate($timestart, get_string('strftimetime', 'langconfig'), $tz);
 
-        if ($timestart < $timeend) {
+        if ($timestart < $timeend && $timeend != self::TIMESTAMP_FOREVER) {
             $formattedline .= '&ndash;' . userdate($timeend, get_string('strftimetime', 'langconfig'), $tz);
 
             $tzobject = \core_date::get_user_timezone_object($tz);
