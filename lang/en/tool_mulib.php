@@ -10,6 +10,8 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['environment_64bit_ok'] = 'PHP supports 64-bit integers and dates.';
+$string['environment_64bit_required'] = 'PHP does not support 64-bit integers and dates.';
 $string['environment_mssql_unsupported'] = 'MS SQL Server database is not supported for use with muTMS plugins.';
 $string['environment_oracle_incompatible'] = 'Oracle Database is not compatible with muTMS plugins.';
 $string['environment_windows_unsupported'] = 'MS Windows is not supported as web server for use with muTMS plugins. ';
