@@ -106,7 +106,6 @@ class provider implements
               ORDER BY nu.id ASC";
         $params = ['userid' => $contextlist->get_user()->id];
 
-        // NOTE: the logic is taken from cohort privacy provider...
         $data = [];
         $rs = $DB->get_recordset_sql($sql, $params);
         foreach ($rs as $notification) {
@@ -114,7 +113,7 @@ class provider implements
             $data[] = $notification;
         }
         $rs->close();
-        // Method export_related_data() supports array, not just objects.
+        // Method export_related_data() supports arrays, not just objects.
         writer::with_context($syscontext)->export_related_data(
             $subcontexts,
             'data', $data);
@@ -142,7 +141,7 @@ class provider implements
      *
      * @param approved_contextlist $contextlist The approved contexts and user information to delete information for.
      */
-    public static function delete_data_for_user(approved_contextlist $contextlist) {
+    public static function delete_data_for_user(approved_contextlist $contextlist): void {
         global $DB;
 
         $syscontext = \context_system::instance();

@@ -24,7 +24,7 @@ use tool_mulib\privacy\provider;
 use core_privacy\local\request\writer;
 
 /**
- * Date helper tests.
+ * Privacy provider tests.
  *
  * @group       muTMS
  * @package     tool_mulib
@@ -93,7 +93,6 @@ final class provider_test extends \core_privacy\tests\provider_testcase {
     }
 
     public function test_get_metadata(): void {
-        // Make sure there are no errors.
         $collection = provider::get_metadata(new \core_privacy\local\metadata\collection('tool_mulib'));
 
         $itemcollection = $collection->get_collection();
@@ -101,6 +100,21 @@ final class provider_test extends \core_privacy\tests\provider_testcase {
 
         $table = reset($itemcollection);
         $this->assertEquals('tool_mulib_notification_user', $table->get_name());
+
+        // Make sure lang strings exist.
+        get_string($table->get_summary(), 'tool_mulib');
+        foreach ($table->get_privacy_fields() as $str) {
+            get_string($str, 'tool_mulib');
+        }
+    }
+
+    public function test_get_contexts_for_userid(): void {
+        $admin = get_admin();
+
+        $syscontext = \context_system::instance();
+
+        $list = provider::get_contexts_for_userid($admin->id);
+        $this->assertSame([(string)$syscontext->id], $list->get_contextids());
     }
 
     public function test_export_user_data(): void {
