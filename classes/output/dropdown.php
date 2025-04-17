@@ -16,7 +16,7 @@
 
 // phpcs:disable moodle.Files.BoilerplateComment.CommentEndedTooSoon
 
-namespace tool_mulib\output\action_menu;
+namespace tool_mulib\output;
 
 /**
  * Action menu dropdown.
@@ -101,6 +101,6 @@ class dropdown implements \core\output\renderable, \core\output\named_templatabl
      * @return string
      */
     final public function get_template_name(\renderer_base $renderer): string {
-        return 'tool_mulib/action_menu/dropdown';
+        return 'tool_mulib/dropdown';
     }
 }

@@ -17,9 +17,9 @@
 // phpcs:disable moodle.Files.BoilerplateComment.CommentEndedTooSoon
 // phpcs:disable moodle.Files.LineLength.TooLong
 
-namespace tool_mulib\phpunit\output\action_menu;
+namespace tool_mulib\phpunit\output;
 
-use tool_mulib\output\action_menu\dropdown;
+use tool_mulib\output\dropdown;
 
 /**
  * Header actions tests.
@@ -29,7 +29,7 @@ use tool_mulib\output\action_menu\dropdown;
  * @copyright   2025 Petr Skoda
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @covers \tool_mulib\output\action_menu\dropdown
+ * @covers \tool_mulib\output\dropdown
  */
 final class dropdown_test extends \advanced_testcase {
     protected function setUp(): void {

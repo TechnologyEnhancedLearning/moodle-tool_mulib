@@ -18,7 +18,7 @@
 
 namespace tool_mulib\output;
 
-use tool_mulib\output\action_menu\dropdown;
+use tool_mulib\output\dropdown;
 
 /**
  * Page headers actions - combo of buttons and dropdown.

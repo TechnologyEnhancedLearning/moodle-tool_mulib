@@ -52,7 +52,7 @@ final class header_actions_test extends \advanced_testcase {
 
     public function test_get_dropdown(): void {
         $actions = new header_actions('some title');
-        $this->assertInstanceOf(\tool_mulib\output\action_menu\dropdown::class, $actions->get_dropdown());
+        $this->assertInstanceOf(\tool_mulib\output\dropdown::class, $actions->get_dropdown());
     }
 
     public function test_add_button(): void {
