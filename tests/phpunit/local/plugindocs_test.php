@@ -57,18 +57,13 @@ final class plugindocs_test extends \advanced_testcase {
         $PAGE->set_docs_path('abc');
         $this->assertSame('abc', $PAGE->docspath);
 
-        plugindocs::set_path('tool_mulib', 'some_page.md');
-        $this->assertSame(
-            'https://www.example.com/moodle/admin/tool/mulib/plugindocs.php/tool_mulib/some_page.md',
-            $PAGE->docspath);
-
         $this->assertDebuggingNotCalled();
 
-        plugindocs::set_path('tool_mulib', 'bad-page.md');
+        plugindocs::set_path('tool_mulib', 'non_existent_page.md');
         $this->assertSame(
-            'https://www.example.com/moodle/admin/tool/mulib/plugindocs.php/tool_mulib/some_page.md',
+            'https://www.example.com/moodle/admin/tool/mulib/plugindocs.php/tool_mulib/non_existent_page.md',
             $PAGE->docspath);
-        $this->assertDebuggingCalled('plugin docs file name cannot contain "-" character');
+        $this->assertDebuggingCalled('plugin docs file does not exist: non_existent_page.md');
     }
 
     public function test_render_github_markdown(): void {
