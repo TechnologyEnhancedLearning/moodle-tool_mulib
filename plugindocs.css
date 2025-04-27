@@ -43,6 +43,10 @@
     border: 1px solid lightgrey;
 }
 
+#tool_mulib_plugindocs tr:nth-child(even) {
+    background-color: rgb(246, 248, 250);
+}
+
 #tool_mulib_plugindocs {
     max-width: 1012px;
     margin-right: auto;
