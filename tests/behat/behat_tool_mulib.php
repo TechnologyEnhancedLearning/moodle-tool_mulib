@@ -312,8 +312,8 @@ class behat_tool_mulib extends behat_base {
         global $DB;
         $this->delete_admin_bookmarks_block();
         $this->execute('behat_general::i_change_window_size_to', ['window', '1208x780']);
-        $DB->set_field('course', 'shortname', 'muTMS', ['category' => 0]);
-        $DB->set_field('course', 'fullname', 'muTMS test site', ['category' => 0]);
+        $DB->set_field('course', 'shortname', 'MuTMS', ['category' => 0]);
+        $DB->set_field('course', 'fullname', 'MuTMS test site', ['category' => 0]);
 
         if (defined('BEHAT_MULIB_UPDATE_SCREENSHOTS') && BEHAT_MULIB_UPDATE_SCREENSHOTS) {
             // Hide theme footer only if actually taking the screenshot.

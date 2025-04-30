@@ -25,7 +25,7 @@ use tool_mulib\local\notification\util;
 /**
  * Notification util tests.
  *
- * @group       muTMS
+ * @group       MuTMS
  * @package     tool_mulib
  * @copyright   2023 Open LMS
  * @copyright   2025 Petr Skoda

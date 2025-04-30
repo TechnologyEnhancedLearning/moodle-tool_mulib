@@ -23,7 +23,7 @@ namespace tool_mulib\phpunit\local;
 /**
  * JSON schema helper tests.
  *
- * @group       muTMS
+ * @group       MuTMS
  * @package     tool_mulib
  * @copyright   2024 Open LMS
  * @copyright   2025 Petr Skoda

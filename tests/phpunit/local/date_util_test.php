@@ -25,7 +25,7 @@ use tool_mulib\local\date_util;
 /**
  * Date helper tests.
  *
- * @group       muTMS
+ * @group       MuTMS
  * @package     tool_mulib
  * @copyright   2023 Open LMS
  * @copyright   2025 Petr Skoda

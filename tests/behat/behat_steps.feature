@@ -1,4 +1,4 @@
-@tool @tool_mulib @muTMS
+@tool @tool_mulib @MuTMS
 Feature: Test tool_mulib behat steps
 
   Scenario: tool_mulib behat step: unnecessary Admin bookmarks block gets deleted
