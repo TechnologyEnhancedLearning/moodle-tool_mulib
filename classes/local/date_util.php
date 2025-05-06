@@ -27,7 +27,7 @@ namespace tool_mulib\local;
  * @author      Petr Skoda
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class date_util {
+final class date_util {
     /** @var int Unix timestamp indicating forever value */
     public const TIMESTAMP_FOREVER = 9999999999;
 
