@@ -29,6 +29,7 @@ $string['environment_64bit_required'] = 'PHP does not support 64-bit integers an
 $string['environment_mssql_unsupported'] = 'MS SQL Server database is not supported for use with MuTMS plugins.';
 $string['environment_oracle_incompatible'] = 'Oracle Database is not compatible with MuTMS plugins.';
 $string['environment_windows_unsupported'] = 'MS Windows is not supported as web server for use with MuTMS plugins. ';
+$string['lang_string_a'] = '{$a}';
 $string['notification'] = 'Notification';
 $string['notification_body'] = 'Message';
 $string['notification_create'] = 'Add notification';
