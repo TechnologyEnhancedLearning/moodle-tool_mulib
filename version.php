@@ -19,8 +19,9 @@
 /**
  * Additional tools library plugin version.
  *
- * @package     tool_mulib
+ * @copyright   2022 Open LMS (https://www.openlms.net/)
  * @copyright   2025 Petr Skoda
+ * @author      Petr Skoda
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
