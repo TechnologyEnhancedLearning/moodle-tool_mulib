@@ -10,3 +10,10 @@ This plugin is required by all other MuTMS plugins.
 - Supported databases: PostgreSQL and MariaDB (MySQL Server is not recommended).
 - 64-bit PHP is required.
 - PHP for Windows is not supported, use WSL 2 or Docker if necessary.
+
+## Acknowledgement
+
+This plugin is a fork of [Open LMS local util plugin](https://github.com/open-lms-open-source/moodle-local_openlms)
+and exists thanks to Open LMS's decision to release it to the public under the GPL 3 license.
+
+MuTMS project is not associated with Open LMS or Moodle HQ in any way.
