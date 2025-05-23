@@ -34,5 +34,5 @@ $plugin->version   = 2025050100;
 $plugin->requires  = 2024100700;
 $plugin->maturity  = MATURITY_ALPHA;
 $plugin->supported = [405, 405];
-$plugin->release   = 'mu-4.5.4-10';
+$plugin->release   = 'mu-4.5.4-10+';
 
