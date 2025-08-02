@@ -1,5 +1,11 @@
 # Changelog
 
+## mu-4.5.5-03
+
+Release date: xx/08/2025
+
+* New modal ajax forms helper replacing dialog forms.
+
 ## mu-4.5.5-02
 
 Release date: 30/06/2025
