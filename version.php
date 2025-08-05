@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
 
 /** @var stdClass $plugin */
 $plugin->component = 'tool_mulib';
-$plugin->version = 2025080345;
+$plugin->version = 2025080545;
 $plugin->requires = 2024100700;
 $plugin->maturity = MATURITY_ALPHA;
 $plugin->supported = [405, 405];
