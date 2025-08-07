@@ -1,3 +1,13 @@
+## MSSQL Compatibility Patch
+
+This fork includes fixes to make the plugin compatible with Microsoft SQL Server.
+
+### Changes made:
+- Removed `tool_mulib` MSSQL block from `environment.xml`
+- Need "moodle-tool_muprog" mssql supported version
+
+> ⚠️ This fork is **not officially supported** by the original authors. Use with caution in production environments.
+
 # Additional MuTMS libraries plugin for Moodle™ LMS
 
 ![Moodle Plugin CI](https://github.com/mutms/moodle-tool_mulib/actions/workflows/moodle-ci.yml/badge.svg)
